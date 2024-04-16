@@ -1,6 +1,12 @@
+const http = require('http');
+
 // create web server
-const express = require('express'); const app = express();
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello, World!');
+});
 
-// Define routes and middleware here
-
-app.listen(3000, () => { console.log('Server is running on port 3000'); });
+server.listen(3000, 'localhost', () => {
+    console.log('Server running at http://localhost:3000/');
+});
